@@ -1,0 +1,273 @@
+```html
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kotoba Quest · Final</title>
+<meta name="theme-color" content="#fa735e">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Zen+Maru+Gothic:wght@500;700;900&display=swap">
+<style>
+:root{--ink:#192536;--mute:#718095;--line:#e9ded1;--coral:#fa735e;--blue:#354f85;--mint:#dcf3e9;--paper:#fffdf9}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:'Manrope',sans-serif}button{font-family:inherit}
+.wrap{max-width:1180px;margin:auto;padding:20px 30px 44px}header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px}.brand{font-weight:900;display:flex;align-items:center;gap:10px}.logo{background:var(--coral);color:#fff;border-radius:13px;width:40px;height:40px;display:grid;place-items:center;font:900 21px 'Zen Maru Gothic';box-shadow:4px 4px #ffd7cf}.tools{display:flex;align-items:center;gap:13px}.lang{background:#f1ece5;border-radius:10px;padding:3px;display:flex}.lang button{border:0;background:0;padding:7px 9px;border-radius:7px;font:800 10px Manrope;color:#7b736a;cursor:pointer}.lang .on{color:var(--blue);background:#fff;box-shadow:0 1px 5px #0001}
+.hero{border-radius:26px;padding:35px 40px;min-height:220px;background:linear-gradient(115deg,#e5f7fc,#eef5ff);display:grid;grid-template-columns:1.2fr .8fr;overflow:hidden}.eyebrow{font:500 10px monospace;letter-spacing:1.2px;color:#43859d;text-transform:uppercase}.hero h1{font:900 31px/1.25 'Zen Maru Gothic';margin:9px 0}.hero em{font-style:normal;color:var(--coral)}.hero p{font-size:12px;line-height:1.7;max-width:540px;color:#5a6b79}.btn{border:0;border-radius:11px;background:var(--coral);color:#fff;padding:11px 15px;box-shadow:0 4px #d85844;font:800 12px Manrope;cursor:pointer}.hero-shot{width:235px;height:150px;object-fit:cover;border:7px solid #fff;border-radius:21px;box-shadow:0 10px #c5e7f0;margin:auto}
+main{display:grid;grid-template-columns:1.6fr .8fr;gap:25px;margin-top:25px}.heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.heading h2{font-size:17px;margin:0}.heading small{font:600 10px monospace;color:#8c7f73}.tabs{display:flex;background:#f4eee6;border-radius:12px;padding:4px;margin-bottom:14px}.tabs button{flex:1;border:0;border-radius:9px;background:0;padding:9px;font:800 11px Manrope;color:#8b8075;cursor:pointer}.tabs .on{background:#fff;color:var(--blue);box-shadow:0 2px 5px #0001}
+.quest{display:grid;grid-template-columns:118px 1fr;gap:13px;min-height:112px;border:1px solid var(--line);border-radius:18px;background:#fff;overflow:hidden;margin:10px 0;cursor:pointer;transition:.18s}.quest:hover{transform:translateY(-2px);box-shadow:0 10px 23px #3e2d1c12}.quest.lock{opacity:.56;cursor:not-allowed}.thumb{width:118px;height:112px;object-fit:cover}.quest-copy{padding:13px 14px 12px 0}.quest b{display:block;font-size:12px}.quest small{display:block;color:var(--mute);font-size:10px;margin:5px 0}.meta{display:flex;justify-content:space-between;margin-top:11px;color:#938374;font:500 9px monospace}.meta strong{color:#28946a}
+.route{border:1px solid var(--line);border-radius:18px;padding:17px;margin-top:17px;background:#fff}.dots{display:flex;align-items:center;margin-top:14px}.dot{height:31px;width:31px;border-radius:50%;display:grid;place-items:center;background:#f2ece4;color:#a39789;font:800 10px monospace}.dot.done{background:var(--mint);color:#278f68}.dot.now{background:var(--coral);color:#fff;box-shadow:0 0 0 4px #ffe4dd}.road{height:3px;flex:1;background:#eee6da}.road.done{background:#cce9dc}.route-labels{display:flex;justify-content:space-between;margin-top:8px;font-size:9px;color:#887b70;font-weight:700}
+aside{display:grid;gap:15px;align-content:start}.check{border-radius:20px;background:var(--blue);padding:20px;color:#fff}.check .eyebrow{color:#bddcff}.check h2{font-size:17px;margin:7px 0}.check p{font-size:11px;color:#d9e4ff;line-height:1.55}.clock{background:#fff;color:#324b7d;box-shadow:0 4px #cbd8f5}.result{margin:12px 0 0;font-size:11px;font-weight:800}.card{border:1px solid var(--line);border-radius:20px;padding:18px;background:#fff}.card h3{margin:0 0 13px;font-size:13px}.week{display:flex;justify-content:space-between}.day{font:600 9px monospace;text-align:center;color:#94887d}.day i{margin:5px auto 0;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#f3eee6;font-style:normal}.day.done i{background:var(--mint);color:#279169}.day.today i{background:#ffd35c}
+.modal{position:fixed;inset:0;background:#1723349b;z-index:5;display:none;place-items:center;padding:16px}.modal.show{display:grid}.dialog{width:min(760px,100%);background:#fffdf9;border-radius:25px;padding:25px;position:relative;box-shadow:0 22px 70px #0004}.close{position:absolute;right:15px;top:14px;border:0;border-radius:50%;height:30px;width:30px;background:#f1ebe3;font-size:17px;cursor:pointer}.dialog h2{margin:5px 32px 0 0;font-size:21px}.lesson{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:18px}.scene{height:230px;border-radius:17px;overflow:hidden;position:relative;background:#d9edf3}.scene img{width:100%;height:100%;object-fit:cover;display:block}.caption{position:absolute;left:10px;bottom:10px;background:#1b2942c7;color:#fff;border-radius:5px;padding:5px 7px;font:500 9px monospace}.caption b{font:700 13px 'Zen Maru Gothic';display:block}.caption-note{font-size:8px;opacity:.78}.source{position:absolute;top:10px;right:10px;background:#fffde;padding:5px 7px;border-radius:20px;color:#344660;font:500 8px monospace;text-decoration:none}.word{font:900 38px 'Zen Maru Gothic';color:var(--coral);line-height:1}.read{font:500 11px monospace;color:#778294;margin-top:6px}.meaning{font-weight:800;font-size:16px;margin:12px 0}.grammar{background:#f4f2ff;border-radius:10px;padding:11px;font-size:11px;line-height:1.65;color:#5c6878}.scene-context{font:500 9px monospace;color:#756858;margin-top:8px}.speak{margin-top:15px;border:0;border-radius:10px;background:#e3f4fa;color:#216a84;padding:10px 12px;font:800 11px Manrope;cursor:pointer}
+.practice{margin-top:12px;border-top:1px dashed #e5d9cc;padding-top:10px}.practice h3{font-size:10px;letter-spacing:.8px;margin:0 0 7px;color:#596b7d}.practice ol{margin:0;padding-left:18px;color:#536171;font-size:11px;line-height:1.75}.practice .tag{font:600 8px monospace;color:#a06d4b;background:#fff0e6;border-radius:10px;padding:3px 6px}.legal{font:500 9px/1.5 monospace;color:#95897d;margin-top:15px;border-top:1px solid var(--line);padding-top:10px}
+.daily-task{border:1px solid var(--line);background:#fff;border-radius:20px;padding:17px}.daily-task h3{font-size:13px;margin:0 0 12px}.mode-tabs{display:flex;gap:5px;background:#f4eee6;padding:4px;border-radius:11px}.mode-tabs button{border:0;flex:1;border-radius:8px;padding:8px 5px;background:0;color:#84786c;font:800 10px Manrope;cursor:pointer}.mode-tabs .on{background:#fff;color:var(--blue);box-shadow:0 1px 5px #0001}.mode-body{padding-top:13px}.mode-body b{font-size:12px;display:block}.mode-body p{font-size:10px;line-height:1.6;color:var(--mute);margin:5px 0 11px}.mini-btn{border:0;border-radius:9px;background:#e5f4f8;color:#276c84;padding:9px 10px;font:800 10px Manrope;cursor:pointer}.record{background:#ffe6e0;color:#b24c3f}.recording{background:#c95142;color:#fff;animation:pulse 1s infinite}@keyframes pulse{50%{opacity:.65}}
+@media(max-width:780px){.wrap{padding:16px}.hero{grid-template-columns:1fr;padding:27px}.hero-shot{display:none}main{grid-template-columns:1fr}.lesson{grid-template-columns:1fr}.scene{height:180px}.streak{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand"><span class="logo">こ</span> Kotoba Quest</div>
+  <div class="tools">
+    <span class="streak">🔥 12 day streak</span>
+    <div class="lang" id="lang">
+      <button type="button" data-l="en" class="on">EN</button>
+      <button type="button" data-l="ja">日本語</button>
+      <button type="button" data-l="zh">中文</button>
+    </div>
+    <span>🦊</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <div class="eyebrow" data-t="eye">Anime-powered Japanese</div>
+    <h1 data-h="title">Turn every scene into a <em>language quest.</em></h1>
+    <p data-t="hero">Learn words, grammar, and emotion from the moments you remember.</p>
+    <button type="button" class="btn" id="start" data-t="start">Enter today’s quest →</button>
+  </div>
+  <img class="hero-shot" src="assets/anime-scene.png" alt="Anime scene" loading="lazy">
+</section>
+
+<main>
+<section>
+  <div class="heading"><h2 data-t="map">Quest map</h2><small id="status">BEGINNER · 2 / 6 CLEAR</small></div>
+  <div class="tabs" id="tabs">
+    <button type="button" class="on" data-v="beginner" data-t="beginner">Beginner</button>
+    <button type="button" data-v="intermediate" data-t="intermediate">Intermediate</button>
+    <button type="button" data-v="advanced" data-t="advanced">Advanced</button>
+    <button type="button" data-v="n2" data-t="n2">Upper intermediate</button>
+    <button type="button" data-v="master" data-t="master">Mastery</button>
+  </div>
+  <div id="quests"></div>
+  <div class="route">
+    <div class="heading"><h2 data-t="route">Your route</h2><small data-t="next">NEXT: STAGE 3</small></div>
+    <div class="dots"><span class="dot done">01</span><i class="road done"></i><span class="dot done">02</span><i class="road done"></i><span class="dot now">03</span><i class="road"></i><span class="dot">04</span><i class="road"></i><span class="dot">05</span></div>
+    <div class="route-labels"><span data-t="arrival">Arrival</span><span data-t="current">Current quest</span><span data-t="boss">Boss scene</span></div>
+  </div>
+</section>
+
+<aside>
+  <section class="check">
+    <div class="eyebrow" data-t="daily">Daily punch-in</div>
+    <h2 data-t="ready">Ready for your scene?</h2>
+    <p data-t="checkcopy">Clock in once a day to protect your streak and unlock a bonus line.</p>
+    <button type="button" id="clock" class="btn clock" data-t="clock">Clock in for today</button>
+    <p class="result" id="result"></p>
+  </section>
+  <section class="card"><h3 data-t="week">This week</h3><div class="week" id="week"></div></section>
+  <section class="card"><h3 data-t="noticeHead">Media note</h3><p style="font-size:10px;line-height:1.6;margin:0;color:#73685e" data-h="notice"><b>Actual anime screenshots</b> are used as study context. Keep externally sourced images linked to their original article or licensed provider.</p></section>
+</aside>
+</main>
+</div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+<article class="dialog">
+  <button type="button" class="close" id="close" aria-label="Close">×</button>
+  <div class="eyebrow">VOCABULARY · SCENE STUDY</div>
+  <h2 id="lessonTitle"></h2>
+  <div class="lesson">
+    <div class="scene">
+      <img id="lessonImage" alt="Anime scene study image" loading="lazy">
+      <a id="credit" class="source" target="_blank" rel="noopener">Source ↗</a>
+      <span class="caption" id="caption"></span>
+    </div>
+    <div>
+      <div class="word" id="word"></div>
+      <div class="read" id="read"></div>
+      <div class="meaning" id="meaning"></div>
+      <div class="grammar" id="grammar"></div>
+      <button type="button" class="speak" id="speak">▶ Play Japanese</button>
+    </div>
+  </div>
+  <div class="legal" data-t="legal">Screenshots remain property of their respective rightsholders and are presented here as linked study references. Japanese pronunciation is generated by your browser.</div>
+</article>
+</div>
+
+<script>
+const A='assets/anime-scene.png',F='https://beebom.com/wp-content/uploads/2024/01/animation-of-frieren.jpg?quality=75&w=1024',B='https://miro.medium.com/v2/resize:fit:1400/0*RA96LQwu6GjygqNT',Y='https://www.yamanashi-kankou.jp/special/sp_yurucamp/images/yrc_04_c06a.jpg',K='https://m.media-amazon.com/images/M/MV5BNzM0ZmIyY2ItNTc5NS00NWEwLTgyMjItZDhiNjg1MzcyY2Y0XkEyXkFqcGc%40._V1_.jpg',YA='https://image.p-c2-x.abema-tv.com/image/programs/247-5_s30_p8/thumb002.png?height=720&quality=75&version=1738221348&width=1280';
+const T={
+en:{eye:'Anime-powered Japanese',title:'Turn every scene into a <em>language quest.</em>',hero:'Learn words, grammar, and emotion from the moments you remember.',start:'Enter today’s quest →',map:'Quest map',beginner:'Beginner',intermediate:'Intermediate',advanced:'Advanced',route:'Your route',next:'NEXT: STAGE 3',arrival:'Arrival',current:'Current quest',boss:'Boss scene',daily:'Daily punch-in',ready:'Ready for your scene?',checkcopy:'Clock in once a day to protect your streak and unlock a bonus line.',clock:'Clock in for today',week:'This week',noticeHead:'Media note',notice:'<b>Actual anime screenshots</b> are used as study context. Keep externally sourced images linked to their original article or licensed provider.',checked:'Clocked in! Bonus line: 「今日も頑張ろう」',done:'CLOCKED IN',legal:'Screenshots remain property of their respective rightsholders and are presented here as linked study references. Japanese pronunciation is generated by your browser.',n2:'Upper intermediate',master:'Mastery'},
+ja:{eye:'アニメで学ぶ日本語',title:'忘れられない場面を、<em>言葉のクエストに。</em>',hero:'心に残る瞬間から、単語・文法・気持ちのリズムを身につけよう。',start:'今日のクエストへ →',map:'クエストマップ',beginner:'初級',intermediate:'中級',advanced:'上級',route:'あなたのルート',next:'次：ステージ 3',arrival:'はじまり',current:'いまここ',boss:'ボス場面',daily:'毎日チェックイン',ready:'今日の場面、準備OK？',checkcopy:'一日一回のチェックインで、連続記録とボーナス台詞を手に入れよう。',clock:'今日の出席を記録',week:'今週',noticeHead:'メディアについて',notice:'<b>アニメのスクリーンショット</b>を学習の文脈として使っています。外部画像は元記事またはライセンス済みの提供元にリンクしてください。',checked:'チェックイン完了！ ボーナス台詞：「今日も頑張ろう」',done:'記録済み',legal:'画像の権利は各権利者に帰属します。学習用のリンク付き参考資料として表示し、日本語音声はブラウザで生成します。',n2:'上級',master:'マスター'},
+zh:{eye:'用动漫学日语',title:'把每个名场面，变成<em>语言任务。</em>',hero:'从你记得的瞬间学习单词、语法和情感语感。',start:'进入今日任务 →',map:'任务地图',beginner:'初级',intermediate:'中级',advanced:'高级',route:'你的路线',next:'下一关：阶段 3',arrival:'启程',current:'当前任务',boss:'首领场景',daily:'每日打卡',ready:'准备好进入今天的场景了吗？',checkcopy:'每天打卡一次，守护连续学习记录并解锁奖励台词。',clock:'今日打卡',week:'本周',noticeHead:'媒体说明',notice:'<b>真实动漫截图</b>用作学习语境。外部图片应保留原文或授权提供方链接。',checked:'打卡成功！奖励台词：「今日も頑張ろう」',done:'已打卡',legal:'截图版权归各自权利人所有，此处作为带来源链接的学习参考展示。日语发音由浏览器生成。',n2:'进阶',master:'精通'}
+};
+const Q={
+beginner:[
+['🪄','お願い、待って','Line study · request','Your supplied anime screenshot',A,'お願い','onegai',['Please. / I beg you.','お願い。強く頼む言葉。','拜托了 / 求你了。'],['お願い is a direct, emotional request. Add します for a polite request.','お願いは、強く頼むときの言葉です。丁寧には「お願いします」。','お願い是直接、带情感的请求。加します会更礼貌。'],true,'#'],
+['🎸','A journey together','Grammar · volitional form','Bocchi the Rock! reference',B,'一緒に行こう','issho ni ikō',["Let's go together.",'一緒に行こう。','一起去吧。'],['The volitional form 行こう invites someone to act with you.','「行こう」は相手を誘う意志形です。','行こう是邀请对方一起行动的意志形。'],true,'https://lnamaru.medium.com/bocchi-the-rock-the-unheard-contender-68b747393aa0'],
+['🍵','Camp departure','Conversation · getting ready','Yuru Camp△ reference',Y,'準備できた？','junbi dekita?',['Are you ready?','準備できた？','准备好了吗？'],['できた is the casual past form of できる, often used to check readiness.','「できた？」は準備が終わったかをたずねるカジュアルな言い方です。','できた是できる的过去式，常用来确认准备是否完成。'],true,'https://www.yamanashi-kankou.jp/special/sp_yurucamp/story4.html']
+],
+intermediate:[
+['🌙','After rehearsal','Conversation · club practice','K-On! reference',K,'練習しよう','renshū shiyō',["Let's practice.",'練習しよう。','练习吧。'],['The volitional form しよう is a casual “let’s do it.”','「しよう」はカジュアルな「一緒に～しよう」です。','しよう是随意的“一起……吧”。'],true,'https://www.imdb.com/title/tt1410218/mediaviewer/rm122889472/'],
+['🎤','A cold evening','Observation · weather','Yuru Camp△ reference',YA,'寒くなってきた','samuku natte kita',['It’s getting cold.','寒くなってきた。','开始变冷了。'],['～てきた describes a change that has begun and is moving toward now.','～てきたは、変化が今に近づいてきたことを表します。','～てきた表示某种变化开始并发展到现在。'],true,'https://abema.tv/video/episode/247-5_s30_p8']
+],
+advanced:[
+['⚡','What remains unsaid','Grammar · ～わけではない','Bocchi the Rock! reference',B,'嫌いなわけじゃない','kirai na wake janai',['It’s not that I dislike it.','嫌いというわけではない。','并不是说我讨厌它。'],['～わけではない gently denies an assumption.','～わけではないは、思い込みをやわらかく否定します。','～わけではない用于委婉否定某种推测。'],true,'https://lnamaru.medium.com/bocchi-the-rock-the-unheard-contender-68b747393aa0'],
+['🗺️','The road ahead','Grammar · ～に違いない','Frieren reference',F,'きっと来るに違いない','kitto kuru ni chigai nai',['They are surely going to come.','きっと来るはずだ。','一定会来的。'],['～に違いない expresses strong conviction.','～に違いないは、強い確信を表します。','～に違いない表示强烈确信。'],true,'https://beebom.com/reasons-why-watch-frieren-anime/']
+],
+n2:[
+['📚','Reading between the lines','Nuance · ～ものの','Frieren reference',F,'～ものの','monono',['Although…','～ものの。','虽然……'],['Use ～ものの to contrast an expectation with what actually follows.','～もののは、予想と後ろに続く内容の対比に使います。','～ものの用于表达预期与后续事实的对比。'],true,'https://beebom.com/reasons-why-watch-frieren-anime/'],
+['🎼','A thought you can soften','Nuance · ～かな','K-On! reference',K,'～かな','kana',['I wonder…','～かな。','不知道会不会……'],['Add かな to quietly wonder about something.','かなをつけると、やわらかい独り言や疑問になります。','加上かな，可表达轻声自言自语或疑问。'],true,'https://www.imdb.com/title/tt1410218/mediaviewer/rm122889472/']
+],
+master:[
+['🏔️','The unspoken promise','Expression · ～にすぎない','Frieren reference',F,'～にすぎない','ni suginai',['Nothing more than…','～にすぎない。','只不过是……'],['Use ～にすぎない to deliberately limit or downplay a statement.','～にすぎないは、内容を限定して控えめに言う表現です。','～にすぎない用于限制或淡化陈述的程度。'],true,'https://beebom.com/reasons-why-watch-frieren-anime/'],
+['🎙️','Say it in your own voice','Production · shadowing','Yuru Camp△ reference',YA,'声に出してみよう','koe ni dashite miyō',['Try saying it aloud.','声に出してみよう。','试着大声说出来。'],['Use this open quest to shadow a full practice sequence aloud.','このオープンクエストでは、練習文を声に出してシャドーイングします。','在此开放任务中，请朗读整组练习句子并跟读。'],true,'https://abema.tv/video/episode/247-5_s30_p8']
+]
+};
+
+const extraQuests = {
+  beginner: [
+    ['🌅','A new encounter','Vocabulary · first meeting','Frieren reference',F,'初めまして','hajimemashite',['Nice to meet you.','初めまして。','初次见面。'],['Used when meeting someone for the first time.','初めて会うときに使います。','用于初次见面。'],true,'https://beebom.com/reasons-why-watch-frieren-anime/'],
+    ['🎬','Play it again','Expression · encore','K-On! reference',K,'もう一度','mō ichido',['One more time.','もう一度。','再一次。'],['Use もう一度 to ask for repetition or an encore.','「もう一度」は繰り返しやアンコールを求めるときに使います。','「もう一度」用于请求重复或再来一次。'],true,'https://www.imdb.com/title/tt1410218/mediaviewer/rm122889472/']
+  ],
+  intermediate: [
+    ['🏕️','Setting off','Conversation · departure','Yuru Camp△ reference',Y,'出発しよう','shuppatsu shiyou',["Let's set off.",'出発しよう。','出发吧。'],['The volitional form しよう suggests a casual proposal.','意志形「しよう」は相手を誘う表現です。','意志形「しよう」表示提议。'],true,'https://www.yamanashi-kankou.jp/special/sp_yurucamp/story4.html'],
+    ['💭','Fond memories','Grammar · ～たことがある','Frieren reference',F,'思い出','omoide',['Memories.','思い出。','回忆。'],['～たことがある expresses past experience.','～たことがあるは経験を表します。','～たことがある表示曾经经历过。'],true,'https://beebom.com/reasons-why-watch-frieren-anime/']
+  ],
+  advanced: [
+    ['🎸','Stage fright','Grammar · ～みたい','Bocchi the Rock! reference',B,'緊張している','kinchō shite iru',["I'm nervous.",'緊張している。','很紧张。'],['～みたい expresses appearance or likeness.','「みたい」は見た目や類似を表します。','「みたい」表示看起来像。'],true,'https://lnamaru.medium.com/bocchi-the-rock-the-unheard-contender-68b747393aa0'],
+    ['🎹','A touching moment','Expression · ～なんて','K-On! reference',K,'感動した','kandō shita',['I was moved.','感動した。','很感动。'],['～なんて adds a nuance of surprise or emotional emphasis.','「なんて」は驚きや感情的な強調を加えます。','「なんて」带有惊讶或感情强调的语感。'],true,'https://www.imdb.com/title/tt1410218/mediaviewer/rm122889472/']
+  ],
+  n2: [
+    ['🔥','Silent campfire','Nuance · ～一方で','Yuru Camp△ reference',YA,'静かだ','shizuka da',["It's quiet.",'静かだ。','很安静。'],['～一方で contrasts two facts.','～一方で、二つの事実を対比します。','～一方で用于对比两个事实。'],true,'https://abema.tv/video/episode/247-5_s30_p8'],
+    ['⏳','Eternal journey','Grammar · ～につれて','Frieren reference',F,'永遠','eien',['Eternity.','永遠。','永恒。'],['～につれて means "as ... goes on".','～につれて、「～にしたがって」という意味です。','～につれて表示“随着……”。'],true,'https://beebom.com/reasons-why-watch-frieren-anime/']
+  ],
+  master: [
+    ['🎼','Living fully','Expression · ～べく','K-On! reference',K,'生きる','ikiru',['To live.','生きる。','活着。'],['～べく expresses purpose, similar to "in order to".','～べくは目的を表し、「～するために」に似ています。','～べく表示目的，近似“为了……”。'],true,'https://www.imdb.com/title/tt1410218/mediaviewer/rm122889472/'],
+    ['⛰️','The final attempt','Grammar · ～が最後だ','Yuru Camp△ reference',Y,'挑戦','chōsen',['Challenge.','挑戦。','挑战。'],['～が最後だ implies "once ... then ..." for decisive actions.','～が最後だ、決断的な行動に対して「一度きり」の意味を表します。','～が最後だ表示“一旦……就……”的果断语气。'],true,'https://www.yamanashi-kankou.jp/special/sp_yurucamp/story4.html']
+  ]
+};
+for (const lvl in extraQuests) Q[lvl].push(...extraQuests[lvl]);
+
+const enrich={
+'お願い':{kind:'line visible in supplied screenshot',lines:['お願い、待って。','お願いを一つ聞いてもいい？','お願いします。'],en:['Please, wait.','May I ask one favor?','Please.'],zh:['拜托，等等。','我可以拜托一件事吗？','拜托了。']},
+'一緒に行こう':{kind:'original practice matched to the Frieren journey scene',lines:['一緒に行こう。','次の町まで歩こう。','旅はまだ続く。'],en:["Let's go together.","Let's walk to the next town.",'The journey continues.'],zh:['一起去吧。','走到下一个城镇吧。','旅程还在继续。']},
+'準備できた？':{kind:'original practice matched to the Yuru Camp departure scene',lines:['準備できた？','じゃあ、出発しよう。','忘れ物はない？'],en:['Are you ready?','Okay, let’s set off.','Did you forget anything?'],zh:['准备好了吗？','那么，出发吧。','没有忘东西吧？']},
+'練習しよう':{kind:'original practice matched to the K-On music-club scene',lines:['一緒に練習しよう。','この曲、もう一回。','音楽が好き。'],en:["Let's practice together.",'One more time with this song.','I like music.'],zh:['一起练习吧。','这首歌，再来一次。','我喜欢音乐。']},
+'寒くなってきた':{kind:'original practice matched to the Yuru Camp winter scene',lines:['寒くなってきたね。','火をつけよう。','あたたかい飲み物がほしい。'],en:['It’s getting cold.','Let’s light the fire.','I want a warm drink.'],zh:['开始变冷了呢。','生火吧。','想喝点热饮。']},
+'忘れてしまった':{kind:'original practice matched to the Frieren reflection scene',lines:['約束を忘れてしまった。','でも、今から覚えていこう。','大切なことを思い出した。'],en:['I ended up forgetting the promise.','But I will remember from now on.','I remembered something important.'],zh:['不小心忘记约定了。','但是从现在开始会记住。','想起了一件重要的事。']},
+'嫌いなわけじゃない':{kind:'original practice matched to the music-club scene',lines:['嫌いなわけじゃない。','ただ、少し緊張している。','もう一度やってみたい。'],en:["It’s not that I dislike it.",'I’m just a little nervous.','I want to try it again.'],zh:['并不是我讨厌它。','只是有一点紧张。','想再试一次。']},
+'きっと来るに違いない':{kind:'original practice matched to the Frieren journey scene',lines:['きっと来るに違いない。','ここで待っていよう。','会えると信じている。'],en:['They are surely going to come.','Let’s wait here.','I believe we will meet.'],zh:['他们一定会来的。','在这里等吧。','我相信会见面的。']}
+};
+
+const morePractice={
+'～ものの':['時間はあるものの、何から始めればいい？','分かっているものの、まだ不安だ。','小さな一歩にすぎない。'],
+'～かな':['これでいいかな。','明日は晴れるかな。','もう少し練習しようかな。'],
+'～にすぎない':['これは始まりにすぎない。','小さな間違いにすぎない。','ただの練習にすぎない。'],
+'声に出してみよう':['ゆっくり言ってみよう。','もう一度、声に出そう。','自分の言葉にしてみよう。'],
+'きっと来るに違いない':['きっと来るに違いない。','ここで待っていよう。','会えると信じている。']
+};
+
+const dailyLabels={
+en:{head:'Today’s mission',learn:'Learning Mode',speak:'Practice Mode',learnTitle:'Interactive scene check',learnBody:'Choose a lesson, listen to its Japanese, and clear one quick comprehension prompt.',go:'Start interactive training',speakTitle:'Voice recording exercise',speakBody:'Record yourself saying: 「お願い、待って。」 Then listen back and repeat.',record:'● Start recording',stop:'■ Stop & review',ready:'Your recording is ready to review.'},
+ja:{head:'今日のミッション',learn:'学習モード',speak:'練習モード',learnTitle:'インタラクティブ確認',learnBody:'レッスンを選んで、日本語を聞き、理解チェックを一つクリアしよう。',go:'トレーニングを始める',speakTitle:'音声録音練習',speakBody:'「お願い、待って。」を録音して、聞き返してみよう。',record:'● 録音を始める',stop:'■ 停止して確認',ready:'録音を確認できます。'},
+zh:{head:'今日的任务',learn:'学习模式',speak:'练习模式',learnTitle:'互动场景检查',learnBody:'选择一课，听日语发音，并完成一道理解题。',go:'开始互动训练',speakTitle:'语音录制练习',speakBody:'录下「お願い、待って。」然后回听并再练一次。',record:'● 开始录音',stop:'■ 停止并回听',ready:'录音已准备好，可以回听。'}
+};
+const weekDays={en:['M','T','W','T','F','S','S'],ja:['月','火','水','木','金','土','日'],zh:['一','二','三','四','五','六','日']};
+
+let l=localStorage.kqLang||'en',v='beginner',active;
+const $=s=>document.querySelector(s),n=()=>l==='en'?0:l==='ja'?1:2;
+
+function render(){
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-t]').forEach(x=>x.textContent=T[l][x.dataset.t]);
+  document.querySelectorAll('[data-h]').forEach(x=>x.innerHTML=T[l][x.dataset.h]);
+  document.querySelectorAll('#lang button').forEach(x=>x.classList.toggle('on',x.dataset.l===l));
+  document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('on',x.dataset.v===v));
+  const cleared=Q[v].filter(q=>q[9]).length;
+  $('#status').textContent=v.toUpperCase()+' · '+cleared+' / '+Q[v].length+' CLEAR';
+  $('#quests').innerHTML=Q[v].map((q,i)=>'<article class="quest '+(q[9]?'':'lock')+'" data-i="'+i+'"><img class="thumb" src="'+q[4]+'" alt="Anime scene thumbnail" loading="lazy"><div class="quest-copy"><b>Quest '+(i+1)+' · '+q[1]+'</b><small>'+q[2]+'</small><div class="meta"><span>'+q[3]+'</span><strong>'+(q[9]?'CLEAR ✓':'LOCKED')+'</strong></div></div></article>').join('');
+  document.querySelectorAll('.quest').forEach(x=>{x.onclick=()=>{const q=Q[v][x.dataset.i];if(q[9])open(q)}});
+  $('#week').innerHTML=weekDays[l].map((x,i)=>'<div class="day '+(i<4?'done ':'')+(i===4?'today':'')+'">'+x+'<i>'+(i<4?'✓':i===4?'•':'')+'</i></div>').join('');
+  check();
+}
+
+function open(q){
+  active=q;
+  $('#lessonTitle').textContent=q[1];
+  $('#lessonImage').src=q[4];
+  $('#caption').innerHTML='<b>'+q[5]+'</b><span class="caption-note">STUDY SUBTITLE · '+(q[3]||'scene reference')+'</span>';
+  $('#credit').href=q[10];
+  $('#credit').style.display=q[10]==='#'?'none':'block';
+  $('#word').textContent=q[5];
+  $('#read').textContent=q[6];
+  $('#meaning').textContent=q[7][n()];
+  $('#grammar').textContent=q[8][n()];
+  document.querySelectorAll('.practice,.scene-context').forEach(x=>x.remove());
+  const enr=enrich[q[5]];
+  if(enr){
+    $('#grammar').insertAdjacentHTML('beforebegin','<div class="scene-context">Scene match: the subtitle is selected for this image’s visible situation and lesson goal.</div>');
+    $('#grammar').insertAdjacentHTML('afterend','<section class="practice"><h3>3-LINE PRACTICE <span class="tag">'+enr.kind+'</span></h3><ol>'+enr.lines.map((s,x)=>'<li><b>'+s+'</b><br><span>'+(l==='zh'?enr.zh[x]:enr.en[x])+'</span></li>').join('')+'</ol></section>');
+  } else if(morePractice[q[5]]){
+    $('#grammar').insertAdjacentHTML('afterend','<section class="practice"><h3>3-LINE PRACTICE <span class="tag">ORIGINAL PRACTICE</span></h3><ol>'+morePractice[q[5]].map(s=>'<li><b>'+s+'</b></li>').join('')+'</ol></section>');
+  }
+  $('#modal').classList.add('show');
+}
+
+function check(){
+  const key='kq-check-'+new Date().toDateString();
+  const d=localStorage.getItem(key);
+  $('#clock').disabled=!!d;
+  $('#clock').textContent=d?T[l].done:T[l].clock;
+  $('#result').textContent=d?T[l].checked:'';
+}
+
+let taskMode='learn',recorder,chunks=[];
+function renderTask(){
+  const dl=dailyLabels[l];
+  let task=$('#dailyTask');
+  if(!task){task=document.createElement('section');task.id='dailyTask';task.className='daily-task';document.querySelector('aside').insertBefore(task,document.querySelector('aside').firstChild)}
+  task.innerHTML='<h3>'+dl.head+'</h3><div class="mode-tabs"><button type="button" class="'+(taskMode==='learn'?'on':'')+'" data-mode="learn">⚡ '+dl.learn+'</button><button type="button" class="'+(taskMode==='speak'?'on':'')+'" data-mode="speak">🎙 '+dl.speak+'</button></div><div class="mode-body" id="modeBody"></div>';
+  const body=task.querySelector('#modeBody');
+  if(taskMode==='learn')body.innerHTML='<b>'+dl.learnTitle+'</b><p>'+dl.learnBody+'</p><button type="button" class="mini-btn" id="learnGo">'+dl.go+' →</button>';
+  else body.innerHTML='<b>'+dl.speakTitle+'</b><p>'+dl.speakBody+'</p><button type="button" class="mini-btn record" id="recordBtn">'+dl.record+'</button><div id="playback"></div>';
+  task.querySelectorAll('[data-mode]').forEach(x=>x.onclick=()=>{taskMode=x.dataset.mode;renderTask()});
+  $('#learnGo')?.addEventListener('click',()=>open(Q.beginner[0]));
+  $('#recordBtn')?.addEventListener('click',toggleRecord);
+}
+async function toggleRecord(){
+  const button=document.getElementById('recordBtn');
+  if(recorder&&recorder.state==='recording'){recorder.stop();button.textContent=dailyLabels[l].record;button.classList.remove('recording');return}
+  try{
+    const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+    chunks=[];recorder=new MediaRecorder(stream);
+    recorder.ondataavailable=e=>chunks.push(e.data);
+    recorder.onstop=()=>{const url=URL.createObjectURL(new Blob(chunks,{type:'audio/webm'}));document.getElementById('playback').innerHTML='<audio controls src="'+url+'" style="width:100%;margin-top:10px"></audio><p style="font-size:10px;color:#298e69;margin:6px 0 0">'+dailyLabels[l].ready+'</p>';stream.getTracks().forEach(t=>t.stop())};
+    recorder.start();button.textContent=dailyLabels[l].stop;button.classList.add('recording');
+  }catch(e){document.getElementById('playback').innerHTML='<p style="font-size:10px;color:#b24c3f">Microphone access is needed to record your practice.</p>'}
+}
+
+$('#lang').addEventListener('click',e=>{
+  if(e.target.dataset.l){l=e.target.dataset.l;localStorage.kqLang=l;render();if(active)open(active);renderTask()}
+});
+$('#tabs').addEventListener('click',e=>{
+  if(e.target.dataset.v){v=e.target.dataset.v;render()}
+});
+$('#start').onclick=()=>open(Q.beginner[0]);
+$('#close').onclick=()=>$('#modal').classList.remove('show');
+$('#modal').addEventListener('click',e=>{if(e.target===$('#modal'))$('#modal').classList.remove('show')});
+$('#speak').addEventListener('click',()=>{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(active[5]);u.lang='ja-JP';u.rate=.78;speechSynthesis.speak(u)});
+$('#clock').addEventListener('click',()=>{localStorage.setItem('kq-check-'+new Date().toDateString(),'1');check()});
+
+render();renderTask();
+</script>
+</body>
+</html>
+```
