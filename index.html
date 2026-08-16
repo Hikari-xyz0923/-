@@ -137,3 +137,27 @@
   </script>
 </body>
 </html>
+```html
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kotoba Quest · 魔改版</title>
+  <meta name="theme-color" content="#fa735e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    :root{--ink:#192536;--mute:#718095;--line:#e9ded1;--coral:#fa735e;--blue:#354f85;--mint:#dcf3e9;--paper:#fffdf9}
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(125deg,#fffdf9,#eef5ff,#e5f7fc);background-size:300% 300%;animation:bgShift 16s ease infinite;color:var(--ink);font-family:'Manrope','Zen Maru Gothic',sans-serif}
+    @keyframes bgShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .wrap{max-width:1180px;margin:auto;padding:20px 30px 44px}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px}
+    .brand{font-weight:900;display:flex;align-items:center;gap:10px}
+    .logo{height:40px;width:40px;display:grid;place-items:center;border-radius:13px;background:var(--coral);color:#fff;font:900 21px 'Zen Maru Gothic';box-shadow:4px 4px #ffd7cf;animation:float 3s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+    .tools{display:flex;gap:13px;align-items:center}
+    .streak{font-size:12px;font-weight:700;color:#c96f4a;
