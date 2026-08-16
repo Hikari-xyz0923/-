@@ -24,7 +24,30 @@ advanced:[['⚡','What remains unsaid','Grammar · ～わけではない','Bocch
 n2:[['📚','Reading between the lines','Nuance · ～ものの','Frieren reference',F,'～ものの','monono',['Although…','～ものの。','虽然……'],['Use ～ものの to contrast an expectation with what actually follows.','～もののは、予想と後ろに続く内容の対比に使います。','～ものの用于表达预期与后续事实的对比。'],true,'https://beebom.com/reasons-why-watch-frieren-anime/'],['🎼','A thought you can soften','Nuance · ～かな','K-On! reference',K,'～かな','kana',['I wonder…','～かな。','不知道会不会……'],['Add かな to quietly wonder about something.','かなをつけると、やわらかい独り言や疑問になります。','加上かな，可表达轻声自言自语或疑问。'],true,'https://www.imdb.com/title/tt1410218/mediaviewer/rm122889472/']],
 master:[['🏔️','The unspoken promise','Expression · ～にすぎない','Frieren reference',F,'～にすぎない','ni suginai',['Nothing more than…','～にすぎない。','只不过是……'],['Use ～にすぎない to deliberately limit or downplay a statement.','～にすぎないは、内容を限定して控えめに言う表現です。','～にすぎない用于限制或淡化陈述的程度。'],true,'https://beebom.com/reasons-why-watch-frieren-anime/'],['🎙️','Say it in your own voice','Production · shadowing','Yuru Camp△ reference',YA,'声に出してみよう','koe ni dashite miyō',['Try saying it aloud.','声に出してみよう。','试着大声说出来。'],['Use this open quest to shadow a full practice sequence aloud.','このオープンクエストでは、練習文を声に出してシャドーイングします。','在此开放任务中，请朗读整组练习句子并跟读。'],true,'https://abema.tv/video/episode/247-5_s30_p8']]};
 
-for (const lvl in extraQuests) {
+for (const lvl in extraQuests) {```js
+const extraQuests = {
+  beginner: [
+    ['🌅','A new encounter','Vocabulary · first meeting','Frieren reference',F,'初めまして','hajimemashite',['Nice to meet you.','初めまして。','初次见面。'],['Used when meeting someone for the first time.','初めて会うときに使います。','用于初次见面。'],true,'https://beebom.com/reasons-why-watch-frieren-anime/'],
+    ['🎬','Play it again','Expression · encore','K-On! reference',K,'もう一度','mō ichido',['One more time.','もう一度。','再一次。'],['Use もう一度 to ask for repetition or an encore.','「もう一度」は繰り返しやアンコールを求めるときに使います。','「もう一度」用于请求重复或再来一次。'],true,'https://www.imdb.com/title/tt1410218/mediaviewer/rm122889472/']
+  ],
+  intermediate: [
+    ['🏕️','Setting off','Conversation · departure','Yuru Camp△ reference',Y,'出発しよう','shuppatsu shiyou',["Let's set off.",'出発しよう。','出发吧。'],['The volitional form しよう suggests a casual proposal.','意志形「しよう」は相手を誘う表現です。','意志形「しよう」表示提议。'],true,'https://www.yamanashi-kankou.jp/special/sp_yurucamp/story4.html'],
+    ['💭','Fond memories','Grammar · ～たことがある','Frieren reference',F,'思い出','omoide',['Memories.','思い出。','回忆。'],['～たことがある expresses past experience.','～たことがあるは経験を表します。','～たことがある表示曾经经历过。'],true,'https://beebom.com/reasons-why-watch-frieren-anime/']
+  ],
+  advanced: [
+    ['🎸','Stage fright','Grammar · ～みたい','Bocchi the Rock! reference',B,'緊張している','kinchō shite iru',["I'm nervous.",'緊張している。','很紧张。'],['～みたい expresses appearance or likeness.','「みたい」は見た目や類似を表します。','「みたい」表示看起来像。'],true,'https://lnamaru.medium.com/bocchi-the-rock-the-unheard-contender-68b747393aa0'],
+    ['🎹','A touching moment','Expression · ～なんて','K-On! reference',K,'感動した','kandō shita',['I was moved.','感動した。','很感动。'],['～なんて adds a nuance of surprise or emotional emphasis.','「なんて」は驚きや感情的な強調を加えます。','「なんて」带有惊讶或感情强调的语感。'],true,'https://www.imdb.com/title/tt1410218/mediaviewer/rm122889472/']
+  ],
+  n2: [
+    ['🔥','Silent campfire','Nuance · ～一方で','Yuru Camp△ reference',YA,'静かだ','shizuka da',["It's quiet.",'静かだ。','很安静。'],['～一方で contrasts two facts.','～一方で、二つの事実を対比します。','～一方で用于对比两个事实。'],true,'https://abema.tv/video/episode/247-5_s30_p8'],
+    ['⏳','Eternal journey','Grammar · ～につれて','Frieren reference',F,'永遠','eien',['Eternity.','永遠。','永恒。'],['～につれて means "as ... goes on".','～につれて、「～にしたがって」という意味です。','～につれて表示“随着……”。'],true,'https://beebom.com/reasons-why-watch-frieren-anime/']
+  ],
+  master: [
+    ['🎼','Living fully','Expression · ～べく','K-On! reference',K,'生きる','ikiru',['To live.','生きる。','活着。'],['～べく expresses purpose, similar to "in order to".','～べくは目的を表し、「～するために」に似ています。','～べく表示目的，近似“为了……”。'],true,'https://www.imdb.com/title/tt1410218/mediaviewer/rm122889472/'],
+    ['⛰️','The final attempt','Grammar · ～が最後だ','Yuru Camp△ reference',Y,'挑戦','chōsen',['Challenge.','挑戦。','挑战。'],['～が最後だ implies "once ... then ..." for decisive actions.','～が最後だ、決断的な行動に対して「一度きり」の意味を表します。','～が最後だ表示“一旦……就……”的果断语气。'],true,'https://www.yamanashi-kankou.jp/special/sp_yurucamp/story4.html']
+  ]
+};
+```
   Q[lvl].push(...extraQuests[lvl]);
 }
 ```
